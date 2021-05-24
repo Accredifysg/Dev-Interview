@@ -17,4 +17,5 @@ You might need the run the following commands upon cloning the repo:
 ## How are you graded?
 - Code complexity
 - Comments
+- Proper Commits
 - Test Results
