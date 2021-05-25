@@ -52,7 +52,18 @@ class PriceHelper
      */
     public static function getTotalPriceTierAtQty(int $qty, array $tiers): float
     {
-        return 0.0;
+        if ($qty == 0) {
+            return 0.0;
+        } elseif ($qty <= 10000) {
+            // making use of price tiers to calculate total price
+            return $qty * $tiers[0];
+        } elseif ($qty <= 100000) {
+            // total cost for first tier
+            $firstTier = 10000 * $tiers[0];
+            // total cost for second tier
+            $secondTier = ($qty - 10000) * $tiers[10001];
+            return $firstTier + $secondTier;
+        }
     }
 
     /**
@@ -81,4 +92,6 @@ $priceTier = [
     10001 => 1, // 10,000 - 100,000 qty => $1
     100001 => 0.5, // 100,001 & more => $0.5
 ];
-echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
+// echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
+
+echo $priceHelper->getTotalPriceTierAtQty(100000, $priceTier);
