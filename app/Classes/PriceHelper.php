@@ -64,11 +64,11 @@ class PriceHelper
                 foreach($tiers as $tierStart => $unitCost) {
                     if ($qty == 0) { // taking care of the first case where $qty is 0 
                         return 0.0;
-                    } elseif ($qty <= $tierStart - 1) { // takes care of the tiers inbetween
-                        $sum = ($qty - $prevTier) * $prevUnit; // sum the excess over the previous tier with the previous unit cost
+                    } elseif ($qty <= $tierStart - 1) { // takes care of the tiers inbetween the first and final
+                        $sum = ($qty - $prevTier) * $prevUnit; // sum the excess qty over the previous tier with the previous unit cost
                         return $sum + $tierSum; // return the total
                     } else {
-                        if($tierStart == 0) { // the first tier
+                        if($tierStart == 0) { // if first tier is 0, should not take -1 off.
                             $tierSum += $tierStart * $prevUnit;
                             $prevTier = $tierStart;
                         } else { // the rest of the tiers. -1 as the sum for the previous tier should not take into account the additional unit.
