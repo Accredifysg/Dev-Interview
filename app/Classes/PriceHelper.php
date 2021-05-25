@@ -99,7 +99,7 @@ class PriceHelper
                 // checking the cumulative qty thus far.
                 if ($totalQty <= 10000) { // if the total is within first tier, calculation is straightforward.
                     $cost = $qtyArr[$i] * $tiers[0];
-                    array_push($priceArray, $cost);
+                    array_push($priceArray, floatval($cost));
                 } elseif ($totalQty <= 100000) { // if total has crossed into second tier, we need to check for TWO conditions.
                     if ($qtyArr[$i - 1] < 10000) { // CONDITION 1: if total has only crossed into second tier in current month, there is a difference that still belongs in the first tier.
                         $difference = (10000 - $qtyArr[$i - 1]);
@@ -114,7 +114,12 @@ class PriceHelper
                 }
             }  
         } else { // the case where user is NOT on special pricing tier
-            
+            for ($i = 0; $i < count($qtyArr); $i++) {
+                // tried using $this->getTotalPriceTierAtQty() but error was thrown as $this cannot be used in a static method.
+                // reusing the getTotalPriceTierAtQty method defined above so code is not repeated.
+                $cost = self::getTotalPriceTierAtQty($qtyArr[$i], $tiers);
+                array_push($priceArray, floatval($cost));
+            }
         }
        return $priceArray;
     }
@@ -129,4 +134,4 @@ $priceTier = [
 // echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
 
 // echo $priceHelper->getTotalPriceTierAtQty(100001, $priceTier);
-print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier, true));
+print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier, false));
