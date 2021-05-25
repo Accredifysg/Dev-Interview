@@ -63,6 +63,14 @@ class PriceHelper
             // total cost for second tier
             $secondTier = ($qty - 10000) * $tiers[10001];
             return $firstTier + $secondTier;
+        } else {
+            // total cost for first tier
+            $firstTier = 10000 * $tiers[0];
+            // total cost for second tier
+            $secondTier = 90000 * $tiers[10001];
+            // total cost for third tier
+            $thirdTier = ($qty - 100000) * $tiers[100001];
+            return $firstTier + $secondTier + $thirdTier;
         }
     }
 
@@ -94,4 +102,4 @@ $priceTier = [
 ];
 // echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
 
-echo $priceHelper->getTotalPriceTierAtQty(100000, $priceTier);
+echo $priceHelper->getTotalPriceTierAtQty(100001, $priceTier);
