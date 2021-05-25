@@ -12,7 +12,8 @@ You might need the run the following commands upon cloning the repo:
 3. Follow the instructions from your hiring manager on which questions to attempt
     - Doing more than you are told will be interpreted as failure to follow instructions
 4. Push your branch to your forked repo and create a pull request to Accredifysg/Dev-Interview
-5. Request for a review
+    - Create the PR in this format (attempts/yyyy-mm-dd/your_name_in_snake_case)
+6. Request for a review
 
 ## How are you graded?
 - Code complexity
