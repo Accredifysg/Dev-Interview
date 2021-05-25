@@ -27,14 +27,17 @@ class PriceHelper
     {
         // in php, semi-colon are NECESSARY to mark end of statement. in this case at end of 'return'. this is unlike JS.
         // based on priceTier, which is an array with comma-separated key => value pairs that can be accessed using square bracket notation.
-        if ($qty == 0) {
-            return 0.0;
-        } elseif ($qty <= 10000) {
-            return $tiers[0];
-        } elseif ($qty <= 100000) {
-            return $tiers[10001];
-        } else {
-            return $tiers[100001];
+
+        $currentTier = $tiers[0];
+        foreach($tiers as $tierStart => $unitCost) {
+            if ($qty == 0) { // taking care of the first case where $qty is 0 
+                return 0.0;
+            } elseif ($qty < $tierStart) { // takes care of the tiers inbetween
+                return $currentTier;
+            } elseif ($qty >= array_key_last($tiers)) { // the case where $qty is more than the final tier
+                return end($tiers);
+            }
+            $currentTier = $unitCost;
         }
     }
 
@@ -52,26 +55,8 @@ class PriceHelper
      */
     public static function getTotalPriceTierAtQty(int $qty, array $tiers): float
     {
-        if ($qty == 0) {
-            return 0.0;
-        } elseif ($qty <= 10000) {
-            // making use of price tiers to calculate total price
-            return $qty * $tiers[0];
-        } elseif ($qty <= 100000) {
-            // total cost for first tier
-            $firstTier = 10000 * $tiers[0];
-            // total cost for second tier
-            $secondTier = ($qty - 10000) * $tiers[10001];
-            return $firstTier + $secondTier;
-        } else {
-            // total cost for first tier
-            $firstTier = 10000 * $tiers[0];
-            // total cost for second tier
-            $secondTier = 90000 * $tiers[10001];
-            // total cost for third tier
-            $thirdTier = ($qty - 100000) * $tiers[100001];
-            return $firstTier + $secondTier + $thirdTier;
-        }
+
+        return 0.0;
     }
 
     /**
@@ -124,3 +109,20 @@ class PriceHelper
        return $priceArray;
     }
 }
+
+// $priceHelper = new PriceHelper;
+// $priceTier1 = [
+//     0 => 1.5, // 0 - 10,000 qty => $1.5
+//     10001 => 1, // 10,000 - 100,000 qty => $1
+//     100001 => 0.5, // 100,001 & more => $0.5
+// ];
+// $priceTier2 = [
+//     0 => 1.5,
+//     5001 => 1,
+//     60001 => 0.5,
+//     70001 => 0.4
+// ];
+// // echo $priceHelper->getUnitPriceTierAtQty(70000, $priceTier2);
+
+// echo $priceHelper->getTotalPriceTierAtQty(60000, $priceTier2);
+// // print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier, false));
