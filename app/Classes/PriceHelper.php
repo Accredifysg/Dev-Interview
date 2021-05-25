@@ -25,7 +25,17 @@ class PriceHelper
      */
     public static function getUnitPriceTierAtQty(int $qty, array $tiers): float
     {
-        return 0.0;
+        // in php, semi-colon are NECESSARY to mark end of statement. in this case at end of 'return'. this is unlike JS.
+        // based on priceTier, which is an array with comma-separated key => value pairs that can be accessed using square bracket notation.
+        if ($qty == 0) {
+            return 0.0;
+        } elseif ($qty <= 10000) {
+            return $tiers[0];
+        } elseif ($qty <= 100000) {
+            return $tiers[10001];
+        } else {
+            return $tiers[100001];
+        }
     }
 
     /**
@@ -64,3 +74,11 @@ class PriceHelper
        return [];
     }
 }
+
+$priceHelper = new PriceHelper;
+$priceTier = [
+    0 => 1.5, // 0 - 10,000 qty => $1.5
+    10001 => 1, // 10,000 - 100,000 qty => $1
+    100001 => 0.5, // 100,001 & more => $0.5
+];
+echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
