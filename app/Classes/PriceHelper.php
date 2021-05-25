@@ -90,7 +90,33 @@ class PriceHelper
      */
     public static function getPriceAtEachQty(array $qtyArr, array $tiers, bool $cumulative = false): array
     {
-       return [];
+        $priceArray = [];
+        if ($cumulative) { // the case where user is on the SPECIAL pricing tier, CUMULATIVE
+            $totalQty = 0;
+            for ($i = 0; $i < count($qtyArr); $i++) {
+                // adding the qty of each month to the existing total quantity
+                $totalQty += $qtyArr[$i];
+                // checking the cumulative qty thus far.
+                if ($totalQty <= 10000) { // if the total is within first tier, calculation is straightforward.
+                    $cost = $qtyArr[$i] * $tiers[0];
+                    array_push($priceArray, $cost);
+                } elseif ($totalQty <= 100000) { // if total has crossed into second tier, we need to check for TWO conditions.
+                    if ($qtyArr[$i - 1] < 10000) { // CONDITION 1: if total has only crossed into second tier in current month, there is a difference that still belongs in the first tier.
+                        $difference = (10000 - $qtyArr[$i - 1]);
+                        $firstTier = $difference * $tiers[0];
+                        $secondTier = ($qtyArr[$i] - $difference) * $tiers[10001];
+                        $cost = $firstTier + $secondTier;
+                        array_push($priceArray, floatval($cost)); // convert to float to pass tests
+                    } else { // CONDITION 2: the total is already in second tier, and unit cost is simply 1.
+                        $cost = $qtyArr[$i] * $tiers[10001];
+                        array_push($priceArray, floatval($cost)); // convert to float to pass tests
+                    }
+                }
+            }  
+        } else { // the case where user is NOT on special pricing tier
+            
+        }
+       return $priceArray;
     }
 }
 
@@ -102,4 +128,5 @@ $priceTier = [
 ];
 // echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
 
-echo $priceHelper->getTotalPriceTierAtQty(100001, $priceTier);
+// echo $priceHelper->getTotalPriceTierAtQty(100001, $priceTier);
+print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier, true));
