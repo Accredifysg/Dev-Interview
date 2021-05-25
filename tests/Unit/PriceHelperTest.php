@@ -116,3 +116,63 @@ class PriceHelperTest extends TestCase
         ];
     }
 }
+
+class PriceHelperTest1 extends TestCase
+{
+    private array $priceTier1;
+
+    public function __construct(?string $name = null, array $data = [], $dataName = '')
+    {
+        parent::__construct($name, $data, $dataName);
+
+        $this->priceTier1 = [
+            0 => 1.5,
+            5001 => 1,
+            60001 => 0.5,
+            70001 => 0.4
+        ];
+    }
+
+    /**
+     * @dataProvider unitPriceTier
+     */
+    public function testUnitPriceTier($qty, $expected): void
+    {
+        self::assertSame($expected, PriceHelper::getUnitPriceTierAtQty($qty, $this->priceTier1));
+    }
+
+    /**
+     * @dataProvider totalPriceTier
+     */
+    public function testTotalPriceTier($qty, $expected): void
+    {
+        self::assertSame($expected, PriceHelper::getTotalPriceTierAtQty($qty, $this->priceTier1));
+    }
+
+
+    public function unitPriceTier(): array
+    {
+        return [
+            [0, 0.0],
+            [1, 1.5],
+            [5000, 1.5],
+            [5001, 1.0],
+            [60000, 1.0],
+            [60001, 0.5],
+            [70000, 0.5],
+            [70001, 0.4],
+        ];
+    }
+
+    public function totalPriceTier(): array
+    {
+        return [
+            [0, 0.0],
+            [1, 1.5],
+            [5000, 7500],
+            [60001, 62500.5],
+            [70000, 67500],
+            [70001, 67500.4],
+        ];
+    }
+}
