@@ -124,14 +124,3 @@ class PriceHelper
        return $priceArray;
     }
 }
-
-$priceHelper = new PriceHelper;
-$priceTier = [
-    0 => 1.5, // 0 - 10,000 qty => $1.5
-    10001 => 1, // 10,000 - 100,000 qty => $1
-    100001 => 0.5, // 100,001 & more => $0.5
-];
-// echo $priceHelper->getUnitPriceTierAtQty(10000, $priceTier);
-
-// echo $priceHelper->getTotalPriceTierAtQty(100001, $priceTier);
-print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier, false));
