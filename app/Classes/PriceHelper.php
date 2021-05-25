@@ -56,7 +56,32 @@ class PriceHelper
     public static function getTotalPriceTierAtQty(int $qty, array $tiers): float
     {
 
-        return 0.0;
+                // store the previous tier, unit cost, and total tier sum
+                $prevUnit = $tiers[0]; 
+                $prevTier = 0;
+                $tierSum = 0;
+        
+                foreach($tiers as $tierStart => $unitCost) {
+                    if ($qty == 0) { // taking care of the first case where $qty is 0 
+                        return 0.0;
+                    } elseif ($qty <= $tierStart - 1) { // takes care of the tiers inbetween
+                        $sum = ($qty - $prevTier) * $prevUnit; // sum the excess over the previous tier with the previous unit cost
+                        return $sum + $tierSum; // return the total
+                    } else {
+                        if($tierStart == 0) { // the first tier
+                            $tierSum += $tierStart * $prevUnit;
+                            $prevTier = $tierStart;
+                        } else { // the rest of the tiers. -1 as the sum for the previous tier should not take into account the additional unit.
+                            $tierSum += ($tierStart - 1) * $prevUnit;
+                            $prevTier = ($tierStart - 1);
+                        }
+                        $prevUnit = $unitCost;
+                    }
+                }
+                $sum = ($qty - $prevTier) * $prevUnit;
+                return $sum + $tierSum;
+        
+                // Issue: Stuck on the final tier which is not giving the right output.
     }
 
     /**
