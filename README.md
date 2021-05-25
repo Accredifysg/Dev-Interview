@@ -6,14 +6,12 @@ You might need the run the following commands upon cloning the repo:
 2.  npm install
 
 ## What to do?
-1. Fork the repository
-2. Create a new branch in this format (attempts/yyyy-mm-dd/your_name_in_snake_case)
-    - E.g. attempts/2021-05-23/derrick_lee
-3. Follow the instructions from your hiring manager on which questions to attempt
+1. Fork the repository (Make sure it is a public repository)
+2. Follow the instructions from your hiring manager on which questions to attempt
     - Doing more than you are told will be interpreted as failure to follow instructions
-4. Push your branch to your forked repo and create a pull request to Accredifysg/Dev-Interview
-    - Create the PR in this format (attempts/yyyy-mm-dd/your_name_in_snake_case)
-6. Request for a review
+3. You may push your commits to master or create a branch (that's up to you)
+4. Notify your hiring manager upon completion with the link to your repository
+5. Hiring manager will pull your codes and review
 
 ## How are you graded?
 - Code complexity
