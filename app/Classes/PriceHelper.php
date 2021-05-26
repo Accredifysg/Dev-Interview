@@ -107,45 +107,34 @@ class PriceHelper
             $storeCrossTier = 0; // seperately keep track of previous tier that only changes for the event when a tier happens to be crossed.
             // $tierSum = 0;
             for ($i = 0; $i < count($qtyArr); $i++) {
-                
                 $totalQty += $qtyArr[$i];
                 // checking the cumulative qty thus far.
                 foreach($tiers as $tierStart => $unitCost)  { 
                     if ($totalQty <= $tierStart - 1) { // the check is now done against the total cumulative quantity. check if it is within the current tier
-                        if (array_key_exists($i - 1, $qtyArr) && $qtyArr[$i - 1]) { // check to determine if first month. error handle array key of -1 during first month
-                            echo "CURRENT TIER: $tierStart ";
-                            echo "PREV TIER: $storePrevTier ";
+                        if (array_key_exists($i - 1, $qtyArr) && $qtyArr[$i - 1]) { // check to determine if first month. error handle array key of -1 for first month
                             if ($totalQty - $qtyArr[$i] <= $storePrevTier) { // check if the current tier was just crossed into or already crossed.    
-                                $difference = (($storePrevTier - 1) - ($totalQty - $qtyArr[$i]));
-                                echo "DIFFERENCE: $difference ";
-                                $firstTier = $difference * $tiers[$storeCrossTier];
-                                echo "FIRST TIER: $firstTier ";
-                                $secondTier = ($qtyArr[$i] - $difference) * $tiers[$storePrevTier];
+                                $difference = (($storePrevTier - 1) - ($totalQty - $qtyArr[$i])); // the difference between the tier and the previous total;
+                                $firstTier = $difference * $tiers[$storeCrossTier]; // amount for the tier before it was crossed.
+                                $secondTier = ($qtyArr[$i] - $difference) * $tiers[$storePrevTier]; // amount for the tier after it was crossed.
                                 $cost = $firstTier + $secondTier;
                                 array_push($priceArray, floatval($cost));
-                                $storeCrossTier = $storePrevTier;
+                                $storeCrossTier = $storePrevTier; // update the crosstier. 
                                 break;
-                            } else {
+                            } else { // the case where the tier was already crossed. simple calculation.
                                 $cost = $qtyArr[$i] * $tiers[$storePrevTier];
                                 array_push($priceArray, floatval($cost));
-                                break;  
+                                break; 
                             }
                         } else { // only runs for the first month as $qtyArr[$i - 1] does not exist
-                            if (array_search($qtyArr[$i], $qtyArr) == 0) {
+                            if (array_search($qtyArr[$i], $qtyArr) == 0) { // check to ensure only run for first element
                                 $cost = $qtyArr[$i] * $tiers[$storePrevTier];
                                 array_push($priceArray, floatval($cost));
                                 break;
                             }
-                            // echo "ran ELSE";
-                            // echo "$tierStart";
-                        }
+                        }       
                     }
-                    $storePrevTier = $tierStart; 
-                    echo "BOTTOM: $storePrevTier ";
+                    $storePrevTier = $tierStart; // update the prevTier store.
                 }
-                // final tier exits the loop
-                // $excess =  ( $totalQty - ($storePrevTier - 1));
-                // $sum = $sum = ($excess) * $tiers[$storePrevTier];
             }  
         } else { // the case where user is NOT on special pricing tier
             for ($i = 0; $i < count($qtyArr); $i++) {
@@ -158,21 +147,3 @@ class PriceHelper
        return $priceArray;
     }
 }
-
-$priceHelper = new PriceHelper;
-$priceTier1 = [
-    0 => 1.5, // 0 - 10,000 qty => $1.5
-    10001 => 1, // 10,000 - 100,000 qty => $1
-    100001 => 0.5, // 100,001 & more => $0.5
-];
-$priceTier2 = [
-    0 => 1.5,
-    5001 => 1,
-    60001 => 0.5,
-    70001 => 0.4
-];
-// echo $priceHelper->getUnitPriceTierAtQty(5, $priceTier1);
-
-// echo $priceHelper->getTotalPriceTierAtQty(70001, $priceTier2);
-print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier1, false));
-print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553, 36711, 1], $priceTier1, true));
