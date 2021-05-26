@@ -149,6 +149,22 @@ class PriceHelperTest1 extends TestCase
         self::assertSame($expected, PriceHelper::getTotalPriceTierAtQty($qty, $this->priceTier1));
     }
 
+    /**
+     * @dataProvider qtyAndPrice
+     */
+    public function testPriceAtEachQty($qty, $expected): void
+    {
+        self::assertSame($expected, PriceHelper::getPriceAtEachQty($qty, $this->priceTier1, false));
+    }
+
+    /**
+     * @dataProvider qtyAndPriceCumulative
+     */
+    public function testPriceAtEachQtyCumulative($qty, $expected): void
+    {
+        self::assertSame($expected, PriceHelper::getPriceAtEachQty($qty, $this->priceTier1, true));
+    }
+
 
     public function unitPriceTier(): array
     {
@@ -169,10 +185,50 @@ class PriceHelperTest1 extends TestCase
         return [
             [0, 0.0],
             [1, 1.5],
-            [5000, 7500],
+            [5000, 7500.0],
             [60001, 62500.5],
-            [70000, 67500],
+            [70000, 67500.0],
             [70001, 67500.4],
+        ];
+    }
+
+    public function qtyAndPrice(): array
+    {
+        return [
+            [
+                [
+                    933,
+                    22012,
+                    24791,
+                    15553,
+                ],
+                [
+                    1399.5,
+                    24512.0,
+                    27291.0,
+                    18053.0,
+                ],
+            ],
+        ];
+    }
+
+    public function qtyAndPriceCumulative(): array
+    {
+        return [
+            [
+                [
+                    933,
+                    22012,
+                    24791,
+                    15553,
+                ],
+                [
+                    1399.5,
+                    24045.5,
+                    24791.0,
+                    13908.5,
+                ],
+            ],
         ];
     }
 }
