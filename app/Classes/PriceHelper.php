@@ -66,31 +66,66 @@ class PriceHelper
      */
     public static function getTotalPriceTierAtQty(int $qty, array $tiers): float
     {
-
-                // store the previous tier, unit cost, and total tier sum
-                $prevUnit = $tiers[0]; 
-                $prevTier = 0;
-                $tierSum = 0;
-        
-                foreach($tiers as $tierStart => $unitCost) {
-                    if ($qty == 0) { // taking care of the first case where $qty is 0 
-                        return 0.0;
-                    } elseif ($qty <= $tierStart - 1) { // takes care of the tiers inbetween the first and final
-                        $sum = ($qty - $prevTier) * $prevUnit; // sum the excess qty over the previous tier with the previous unit cost
-                        return $sum + $tierSum; // return the total
-                    } else {
-                        if($tierStart == 0) { // if first tier is 0, should not take -1 off.
-                            $tierSum += $tierStart * $prevUnit;
-                            $prevTier = $tierStart;
-                        } else { // the rest of the tiers. -1 as the sum for the previous tier should not take into account the additional unit.
-                            $tierSum += ($tierStart - 1) * $prevUnit;
-                            $prevTier = ($tierStart - 1);
-                        }
-                        $prevUnit = $unitCost;
-                    }
+        $storePrevTier = 0;
+        $tierSum = 0;
+        foreach($tiers as $tierStart => $unitCost) { 
+            if ($qty == 0) {
+                return 0.0;
+            } elseif ($qty <= $tierStart - 1) {
+                if ($storePrevTier == 0) {
+                    $sum = ( $qty - $storePrevTier) * $tiers[$storePrevTier];    
+                } else {
+                    $excess =  ( $qty - ($storePrevTier - 1));
+                    echo "excess: ($excess) ";
+                    $sum = ($excess) * $tiers[$storePrevTier];
                 }
-                $sum = ($qty - $prevTier) * $prevUnit;
                 return $sum + $tierSum;
+            }
+            // echo "storePrvtier: ($storePrevTier) ";
+            // echo "tierstart: ($tierStart) ";
+            // echo "unitcost: ($tiers[$tierStart]) ";
+            // echo "tiersum(before): ($tierSum) " ;
+            if ($storePrevTier == 0 && $tierStart) {
+                $tierSum += ($tierStart - $storePrevTier - 1) * $tiers[$storePrevTier]; 
+            } else {
+                $tierSum += ($tierStart - $storePrevTier) * $tiers[$storePrevTier]; 
+            }
+            $storePrevTier = $tierStart;
+            echo "tierSum(Loop): ($tierSum) ///";
+        }
+        echo "storePrvtier: ($storePrevTier) ";
+        echo "tierstart: ($tierStart) ";
+        echo "unitcost: ($tiers[$storePrevTier]) ";
+        echo "tierSum: ($tierSum) ";
+        $excess =  ( $qty - ($storePrevTier - 1));
+        $sum = $sum = ($excess) * $tiers[$storePrevTier];
+        return $sum + $tierSum;
+
+
+                // // store the previous tier, unit cost, and total tier sum
+                // $prevUnit = $tiers[0]; 
+                // $prevTier = 0;
+                // $tierSum = 0;
+        
+                // foreach($tiers as $tierStart => $unitCost) {
+                //     if ($qty == 0) { // taking care of the first case where $qty is 0 
+                //         return 0.0;
+                //     } elseif ($qty <= $tierStart - 1) { // takes care of the tiers inbetween the first and final
+                //         $sum = ($qty - $prevTier) * $prevUnit; // sum the excess qty over the previous tier with the previous unit cost
+                //         return $sum + $tierSum; // return the total
+                //     } else {
+                //         if($tierStart == 0) { // if first tier is 0, should not take -1 off.
+                //             $tierSum += $tierStart * $prevUnit;
+                //             $prevTier = $tierStart;
+                //         } else { // the rest of the tiers. -1 as the sum for the previous tier should not take into account the additional unit.
+                //             $tierSum += ($tierStart - 1) * $prevUnit;
+                //             $prevTier = ($tierStart - 1);
+                //         }
+                //         $prevUnit = $unitCost;
+                //     }
+                // }
+                // $sum = ($qty - $prevTier) * $prevUnit;
+                // return $sum + $tierSum;
         
                 // Issue: Stuck on the final tier which is not giving the right output.
     }
@@ -158,7 +193,7 @@ $priceTier2 = [
     60001 => 0.5,
     70001 => 0.4
 ];
-echo $priceHelper->getUnitPriceTierAtQty(70001, $priceTier2);
+// echo $priceHelper->getUnitPriceTierAtQty(5, $priceTier1);
 
-// echo $priceHelper->getTotalPriceTierAtQty(60000, $priceTier2);
+echo $priceHelper->getTotalPriceTierAtQty(70001, $priceTier2);
 // print_r($priceHelper-> getPriceAtEachQty([933, 22012, 24791, 15553], $priceTier, false));
