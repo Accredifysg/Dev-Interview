@@ -33,7 +33,7 @@ class PriceHelper
      *
      * Question:
      * If I purchase 10,000 bicycles, the total price would be 1.5 * 10,000 = $15,000
-     * If I purchase 10,001 bicycles, the total price would be (1.5 * 10,000) + (1 * 2) = $15,001
+     * If I purchase 10,001 bicycles, the total price would be (1.5 * 10,000) + (1 * 1) = $15,001
      * If I purchase 100,001 bicycles, what would the total price be?
      *
      * @param int $qty
