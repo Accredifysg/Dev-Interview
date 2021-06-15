@@ -12,7 +12,7 @@ class PriceHelper
      */
 
     /**
-     * Task: Write a function to return the unit price of an item based on the quantity
+     * Task: Given an associative array of minimum order quantities and their respective prices, write a function to return the unit price of an item based on the quantity.
      *
      * Question:
      * If I purchase 10,000 bicycles, the unit price of the 10,000th bicycle would be 1.50
@@ -29,7 +29,7 @@ class PriceHelper
     }
 
     /**
-     * Task: Write a function to return the total price based on the quantity
+     * Task: Given an associative array of minimum order quantities and their respective prices, write a function to return the total price of an order of items based on the quantity ordered
      *
      * Question:
      * If I purchase 10,000 bicycles, the total price would be 1.5 * 10,000 = $15,000
@@ -46,7 +46,7 @@ class PriceHelper
     }
 
     /**
-     * Task: Write a function to return an array of prices at each quantity
+     * Task: Given an array of quantity of items ordered per month and an associative array of minimum order quantities and their respective prices, write a function to return an array of total charges incurred per month. Each item in the array should reflect the total amount the user has to pay for that month.
      *
      * Question A:
      * A user purchased 933, 22012, 24791 and 15553 bicycles respectively in Jan, Feb, Mar, April
