@@ -1,0 +1,11 @@
+FROM cypress/browsers:latest as devBuild
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN yarn
+
+COPY . .
+
+EXPOSE 3000

@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  ui:
+    build:
+      context: ../../../../Downloads/Accredify-Vue-Boilerplate-main/Accredify-Vue-Boilerplate-main
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    container_name: ui
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
