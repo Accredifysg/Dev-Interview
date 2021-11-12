@@ -38,5 +38,5 @@ We know that there are mixed opinions about take-home test.Our motivation to use
    4. Lightweight technical documentation
       1. Diagrams
       2. Design Considerations
-   5. When you have completed, do reach out to your hiring manager though email with repo link included.
+   5. When you have completed, do reach out to your hiring manager through email with repo link included.
    6. Wait for our call :D
