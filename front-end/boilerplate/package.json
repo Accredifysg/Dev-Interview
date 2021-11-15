@@ -1,0 +1,51 @@
+{
+  "name": "accredify-vue-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "test:e2e:headless": "vue-cli-service test:e2e --headless",
+    "lint": "vue-cli-service lint",
+    "docker:serve": "docker compose up",
+    "docker:test:e2e": "docker-compose -f docker-compose.e2e.yml -f cy-open.yml up --exit-code-from cypress",
+    "docker:test:unit": "docker-compose -f docker-compose.yml run ui yarn test:unit ",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.1.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@intlify/vue-i18n-loader": "^3.0.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-airbnb": "^5.0.2",
+    "@vue/test-utils": "^2.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "commitlint-config-jira": "^1.5.1",
+    "commitlint-plugin-jira-rules": "^1.5.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "husky": "^7.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "typescript": "~3.9.3",
+    "vue-cli-plugin-i18n": "~2.1.4",
+    "vue-jest": "^5.0.0-0"
+  }
+}
