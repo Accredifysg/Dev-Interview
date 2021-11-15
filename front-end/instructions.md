@@ -8,9 +8,9 @@ Frameworks: Vue
 
 ### Overview
 
-This exercise requires you to implement the best possible solution in the time alloted.We are looking for your ability to take a 
-set of requirements and spike a holistic solution that demonstrates sound software design and attention to user experience.We are impressed with a solution that is simple, intuitive and easy to debug/test/extend.
-Ensure your submission meets our [defintion of done](../definition-of-done.md)
+This exercise requires you to implement the best possible solution in the time allocated. We are looking for your ability to take a 
+set of requirements and spike a holistic solution that demonstrates sound software design and attention to user experience. We are impressed with a solution that is simple, intuitive and easy to debug/test/extend.
+Ensure your submission meets our [definition of done](../definition-of-done.md)
 
 ### Exercise: View cat breed attributes
 
