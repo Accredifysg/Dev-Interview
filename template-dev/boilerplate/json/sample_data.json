@@ -1,0 +1,91 @@
+{
+  "name": "Diploma in Electrical Engineering Technology (Full-Time)",
+  "issuedOn": "2020-05-2T00:00:00+08:00",
+  "id": "20RO00638",
+  "recipient": {
+    "name": "Tan Chee Hao",
+    "studentId": "P1234567U"
+  },
+  "transcript": [
+    {
+      "SIN": "1",
+      "startDate": "08-Apr-2019",
+      "endDate": "28-Jun-2019",
+      "name": "Academic Reading and Writing 2",
+      "grade": "Pass"
+    },
+    {
+      "SIN": "2",
+      "startDate": "08-Apr-2019",
+      "endDate": "28-Jun-2019",
+      "name": "Human Resource Management",
+      "grade": "A"
+    },
+    {
+      "SIN": "3",
+      "startDate": "08-Apr-2019",
+      "endDate": "28-Jun-2019",
+      "name": "Principles of Accounting",
+      "grade": "A"
+    },
+    {
+      "SIN": "4",
+      "startDate": "08-Jul-2019",
+      "endDate": "27-Sep-2019",
+      "name": "Marketing",
+      "grade": "A"
+    },
+    {
+      "SIN": "5",
+      "startDate": "08-Jul-2019",
+      "endDate": "27-Sep-2019",
+      "name": "Macroeconomics",
+      "grade": "A"
+    },
+    {
+      "SIN": "7",
+      "startDate": "07-Oct-2019",
+      "endDate": "20-Dec-2019",
+      "name": "Business Decision Making",
+      "grade": "A"
+    },
+    {
+      "SIN": "6",
+      "startDate": "07-Oct-2019",
+      "endDate": "20-Dec-2019",
+      "name": "Management",
+      "grade": "A"
+    },
+    {
+      "SIN": "8",
+      "startDate": "07-Oct-2019",
+      "endDate": "20-Dec-2019",
+      "name": "Management",
+      "grade": "A"
+    },
+    {
+      "SIN": "9",
+      "startDate": "06-Jan-2020",
+      "endDate": "03-Apr-2020",
+      "name": "Compensation",
+      "grade": "A"
+    },
+    {
+      "SIN": "10",
+      "startDate": "06-Jan-2020",
+      "endDate": "03-Apr-2020",
+      "name": "Talent Development",
+      "grade": "A"
+    }
+  ],
+  "additionalData": {
+    "extra": {
+      "programmeScheduleNo": "E16/DIP062/04"
+    }
+  },
+  "$template": {
+    "name": "",
+    "type": "",
+    "url": ""
+  }
+}
