@@ -30,3 +30,6 @@ The end product in PDF can be found in the *examples* folder.
     2. Add your CSS codes in [css/app.css](boilerplate/css/app.css)
     3. Add your JavaScript codes in [js/app.js](boilerplate/js/app.js)
 5. Ensure that transcript.html looks identical to the example when rendered.
+
+##### Technical Notes
+- Ensure that you unit test your submission
