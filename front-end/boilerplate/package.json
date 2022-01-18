@@ -9,9 +9,6 @@
     "test:e2e": "vue-cli-service test:e2e",
     "test:e2e:headless": "vue-cli-service test:e2e --headless",
     "lint": "vue-cli-service lint",
-    "docker:serve": "docker compose up",
-    "docker:test:e2e": "docker-compose -f docker-compose.e2e.yml -f cy-open.yml up --exit-code-from cypress",
-    "docker:test:unit": "docker-compose -f docker-compose.yml run ui yarn test:unit ",
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
     "prepare": "husky install"
   },
