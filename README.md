@@ -1,6 +1,6 @@
 ## Hiring @ Accredify Engineering
 
->For current open positions, please see [here](https://accredify-talent.freshteam.com/jobs)
+>For current open positions, please see [here](https://accredify.freshteam.com/jobs)
 
 ### Welcome
 
