@@ -1,20 +1,18 @@
-# Accredify's Technical Coding Test
+## Back End Exercise
 
-## Setup
-You might need the run the following commands upon cloning the repo:
-1.  composer install
-2.  npm install
+```
+TIMEBOX: 2-3 hours.
+Languages: PHP
+Frameworks: Laravel
+```
 
-## What to do?
-1. Fork & clone the repository (Make sure it is a public repository)
-2. Follow the instructions from your hiring manager on which questions to attempt
-    - Doing more than you are told will be interpreted as failure to follow instructions
-3. Make incremental commits to the master branch of your forked repository
-4. Notify your hiring manager upon completion with the link to your repository
-5. Hiring manager will clone your repository and review your codes
+### Overview
 
-## How are you graded?
-- Code complexity
-- Comments
-- Proper Commits
-- Test Results
+This exercise requires you to implement the best possible solution in the time allocated. We are looking for your ability to take a 
+set of requirements and spike a holistic solution that demonstrates sound software design and attention to user experience. We are impressed with a solution that is simple, intuitive and easy to debug/test/extend.
+Ensure your submission meets our [definition of done](../definition-of-done.md)
+
+You will be given instructions on which exercises to complete, you might be required to do more than one exercise.
+ 
+### Exercises
+https://accredify.notion.site/Backend-Questions-03f60aeb923d4a71ba6e91ec4c2c8cde
