@@ -1,7 +1,7 @@
 ## Back End Exercise
 
 ```
-TIMEBOX: 2-3 hours.
+TIMEBOX: 2-3 hours per exercise
 Languages: PHP
 Frameworks: Laravel
 ```
@@ -13,6 +13,9 @@ set of requirements and spike a holistic solution that demonstrates sound softwa
 Ensure your submission meets our [definition of done](../definition-of-done.md)
 
 You will be given instructions on which exercises to complete, you might be required to do more than one exercise.
+
+Again, you should not take more than 3 hours per exercise.
+However, do not feel constrained by the time and rush through your solution with a surface level implementation
  
 ### Exercises
 https://accredify.notion.site/Backend-Questions-03f60aeb923d4a71ba6e91ec4c2c8cde
