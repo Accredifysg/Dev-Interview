@@ -26,9 +26,8 @@ We know that there are mixed opinions about take-home test.Our motivation to use
     - [Template Development](template-dev)
 2. Read `instructions.md` in the matching directory. Be sure to read the instruction carefully and ask any clarifying instructions via [GH issues](https://github.com/Accredifysg/Dev-Interview/issues)
 3. Clone the boilerplate repo in the matching directory into your own private repository. Add Accredify hiring team members as private collaborators.
-    - [Derrick](https://github.com/derrickleemy)
-    - [Shaun](https://github.com/skydudie)
-    - [Hakim](https://github.com/Abdulhakimsg)
+    - For Frontend, add [Hakim](https://github.com/Abdulhakimsg)
+    - For Backend, add [Derrick](https://github.com/derrickleemy), [Shaun](https://github.com/skydudie), [Ryuta](https://github.com/avosalmon)
 4. Complete as much of the exercise as possible within 3 hours or less.Make sure you satisfy the acceptance criteria in `instructions.md`. Use the specified tools provided in the boilerplate. Ensure that your work meets the [definition of done](definition-of-done.md).
 5. Be sure to include the following in your submission
    1. `README.md` with the following
