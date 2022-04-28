@@ -28,8 +28,9 @@ We know that there are mixed opinions about take-home test.Our motivation to use
 3. Clone the boilerplate repo in the matching directory into your own private repository. Add Accredify hiring team members as private collaborators.
     - For Frontend, add [Hakim](https://github.com/Abdulhakimsg)
     - For Backend, add [Derrick](https://github.com/derrickleemy), [Shaun](https://github.com/skydudie), [Ryuta](https://github.com/avosalmon)
-4. Complete as much of the exercise as possible within 3 hours or less.Make sure you satisfy the acceptance criteria in `instructions.md`. Use the specified tools provided in the boilerplate. Ensure that your work meets the [definition of done](definition-of-done.md).
-5. Be sure to include the following in your submission
+4. Typically, you should not take more than 3 hours per exercise, however, you should not feel constrained by time and rush through your solution with a surface level implementation.
+5. Make sure you satisfy the acceptance criteria in `instructions.md`. Use the specified tools provided in the boilerplate. Ensure that your work meets the [definition of done](definition-of-done.md).
+6. Be sure to include the following in your submission
    1. `README.md` with the following
       1. Screenshots of the finished product.
       2. How to test/run/demo
