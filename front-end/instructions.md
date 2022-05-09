@@ -24,7 +24,5 @@ And I should see a map showing the origin of the cat breed
 ```
 
 ##### Technical Notes
-- Integrate REST api endpoints to call for cat data
-- Ensure these endpoints return mock data
 - Use a free map service to show location
 - Use jest and cypress to write unit and integration test.
