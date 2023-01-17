@@ -13,9 +13,9 @@ In order to advance you, we would like to know more about the way you solve prob
 We know that there are mixed opinions about take-home test.Our motivation to use this method of assessment are due to the following factors.
 
  - 🌎 - We are a fully distributed team that has members working across multiple timezones. Async communication and work allows for collaboration.
- - 🛠 - It matches our workflow. Our engineers would usually start on a self-directed exploration of a problem and then iterate between period of work,edits and reviews before making a pull request which would be approved by their peers. This take-home exercise mimics that workflow. 
- - ⏳ - It allows you to work at you own pace. We structure most of these exercises to take up a maximum of up to 3 hours. You are free to break this 3 hours into multiple session as you wish. 
- 
+ - 🛠 - It matches our workflow. Our engineers would usually start on a self-directed exploration of a problem and then iterate between period of work,edits and reviews before making a pull request which would be approved by their peers. This take-home exercise mimics that workflow.
+ - ⏳ - It allows you to work at you own pace. We structure most of these exercises to take up a maximum of up to 3 hours. You are free to break this 3 hours into multiple session as you wish.
+
 ---
 
 ### Instructions
@@ -23,6 +23,7 @@ We know that there are mixed opinions about take-home test.Our motivation to use
 1. Choose an exercise directory that matches your primary domain
     - [Front End](front-end)
     - [Back End](back-end)
+    - [DevOps](devops)
     - [Template Development](template-dev)
 2. Read `instructions.md` in the matching directory. Be sure to read the instruction carefully and ask any clarifying instructions via [GH issues](https://github.com/Accredifysg/Dev-Interview/issues)
 3. Clone the boilerplate repo in the matching directory into your own private repository. Add Accredify hiring team members as private collaborators.
