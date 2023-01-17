@@ -2,7 +2,7 @@
 
 ### Shell Scripting Exercises
 
-|Name|Topic|Objective & Instructions|Solution|Comments|
+|Name|Topic|Objective & Instructions|Comments|
 |--------|--------|------|----|----|
 |Hello World|Variables|[Exercise](hello_world.md) | Basic
 |Basic date|Variables|[Exercise](basic_date.md) | Basic
